@@ -97,7 +97,7 @@ contract TeamWorkDataController is DataOwnable, TeamWorkData {
     
     function addCollaborator(address _collaborator) public onlyDataOperater returns(bool) {
 		require(_collaborator != address(0), "_collaborator is a zero-address");
-		require(collaboratorInfos[_collaborator].collaborator != address(0), "_collaborator is exists");
+		require(collaboratorInfos[_collaborator].collaborator == address(0), "_collaborator is exists");
 		
         CollaboratorInfo memory collaboratorInfo = CollaboratorInfo({
             collaborator: _collaborator,
